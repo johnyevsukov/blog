@@ -1,4 +1,6 @@
 import React from "react";
+import { Nav } from "../Nav/Nav";
+import "./layout.css";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
@@ -7,7 +9,7 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <>nav</>
+      <Nav />
       <main>{children}</main>
       <>footer</>
     </>
