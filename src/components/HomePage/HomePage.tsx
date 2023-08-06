@@ -2,30 +2,26 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { Text } from "../Text/Text";
 import { VStack } from "../VStack/VStack";
-import * as styles from "./styles";
+import { HomePageHeader } from "../HomePageHeader/HomeHeader";
+import { HomePageArticlePreviews } from "../HomePageArticlePreviews/HomePageArticlePreviews";
 
 interface HomePageProps {
-  data: any;
+  pageData: any;
+  articleData: any[];
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ data }) => {
+export const HomePage: React.FC<HomePageProps> = ({
+  pageData,
+  articleData,
+}) => {
   return (
-    <styles.Wrapper>
-      <styles.ContentHStack $spacing={32}>
-        <styles.ImageWrapper>
-          <GatsbyImage image={data.image?.gatsbyImage} alt="" />
-        </styles.ImageWrapper>
-        <styles.TextWrapper>
-          <VStack $spacing={12}>
-            <Text $weight="bold" $size="xxl" as="h1">
-              {data.title}
-            </Text>
-            <Text $weight="medium" $color="gray2">
-              {data.description.description}
-            </Text>
-          </VStack>
-        </styles.TextWrapper>
-      </styles.ContentHStack>
-    </styles.Wrapper>
+    <>
+      <HomePageHeader
+        title={pageData.title}
+        description={pageData.description.description}
+        image={pageData.image}
+      />
+      <HomePageArticlePreviews articles={articleData} />
+    </>
   );
 };

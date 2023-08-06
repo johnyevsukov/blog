@@ -1,14 +1,20 @@
-import { Link } from "gatsby";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 export const Nav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
+  padding: 12px 32px;
   background: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  z-index: 100;
+`;
+
+export const Content = styled.div`
+  max-width: 1300px;
+  margin: 0 auto;
 `;
 
 export const NavList = styled.ul`
