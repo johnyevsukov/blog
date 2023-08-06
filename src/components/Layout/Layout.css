@@ -124,6 +124,6 @@ section {
 }
 
 main {
-  /* 48px margin top for nav + 16px spacing */
-  margin-top: 64px;
+  /* 48px margin top for fixed nav */
+  margin-top: 48px;
 }
