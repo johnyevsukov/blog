@@ -1,11 +1,11 @@
 import React from "react";
+import { Text } from "../Text/Text";
+import { VStack } from "../VStack/VStack";
+import { HStack } from "../HStack/HStack";
 import { LinkedinIcon } from "../Icons/LinkedinIcon";
 import { WebIcon } from "../Icons/WebIcon";
 import { GithubIcon } from "../Icons/GithubIcon";
-import { Text } from "../Text/Text";
 import * as styles from "./styles";
-import { VStack } from "../VStack/VStack";
-import { HStack } from "../HStack/HStack";
 
 export const Footer: React.FC = () => {
   return (

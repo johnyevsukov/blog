@@ -29,6 +29,7 @@
     "npm": "^9.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "reading-time": "^1.5.0",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {

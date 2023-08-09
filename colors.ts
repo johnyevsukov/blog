@@ -31,7 +31,7 @@ export const colors = {
   red4: "#fc4e4e",
   gray1: "#a3a3a3",
   gray2: "#585858",
-  offWhite: "#F5F5F5",
+  offWhite: "#f3f3f3",
   pureWhite: "#ffffff",
   textBlack: "#333333",
 };

@@ -1,11 +1,3 @@
-/**
- * HStack component.
- * Used to space children
- * horizontally with a given
- * px space between them via
- * a $spacing prop.
- */
-
 import styled from "styled-components";
 
 export const HStack = styled.div<{
@@ -23,6 +15,7 @@ export const HStack = styled.div<{
   width: ${({ $width }) => ($width ? $width : "100%")};
   padding: ${({ $padding }) => ($padding ? `${$padding}px` : null)};
   flex-wrap: ${({ $wrap }) => ($wrap ? "wrap" : "nowrap")};
+  row-gap: 5px;
 
   > * {
     margin-right: ${({ $spacing }) => `${$spacing}px`};

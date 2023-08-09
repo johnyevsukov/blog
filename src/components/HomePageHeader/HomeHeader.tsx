@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { Text } from "../Text/Text";
-import { VStack } from "../VStack/VStack";
+import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
+import { SectionContent } from "../SectionContent/SectionContent";
 import * as styles from "./styles";
 
 interface HomePageHeaderProps {
@@ -16,8 +16,8 @@ export const HomePageHeader: React.FC<HomePageHeaderProps> = ({
   image,
 }) => {
   return (
-    <styles.Wrapper>
-      <styles.Content>
+    <SectionWrapper $background="pureWhite">
+      <SectionContent>
         <styles.ImageWrapper>
           <GatsbyImage image={image.gatsbyImage} alt={image.title} />
         </styles.ImageWrapper>
@@ -27,7 +27,7 @@ export const HomePageHeader: React.FC<HomePageHeaderProps> = ({
             {description}
           </styles.Subtext>
         </styles.TextWrapper>
-      </styles.Content>
-    </styles.Wrapper>
+      </SectionContent>
+    </SectionWrapper>
   );
 };

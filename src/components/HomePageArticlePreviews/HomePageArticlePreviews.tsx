@@ -1,23 +1,24 @@
 import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
+import { SectionContent } from "../SectionContent/SectionContent";
 import { Text } from "../Text/Text";
 import { VStack } from "../VStack/VStack";
+import { BlogPostType } from "../../../types";
 import * as styles from "./styles";
-import { HStack } from "../HStack/HStack";
 
 interface HomePageArticlePreviewsProps {
-  articles: any[];
+  articles: BlogPostType[];
 }
 
 export const HomePageArticlePreviews: React.FC<
   HomePageArticlePreviewsProps
 > = ({ articles }) => {
-  console.log("articles: ", articles);
   return (
-    <styles.Wrapper>
-      <styles.Content>
+    <SectionWrapper $background="offWhite">
+      <SectionContent>
         <VStack $spacing={32} $alignItems="center" $width="100%">
-          <Text $weight="bold" $size="xl" as="h1">
+          <Text $weight="bold" $size="xl" as="h2">
             Articles
           </Text>
           <styles.ArticleLinksWrapper>
@@ -28,14 +29,14 @@ export const HomePageArticlePreviews: React.FC<
                   key={article.title}
                 >
                   <styles.ArticlePreviewCard $spacing={16}>
-                    <Text $weight="medium">{article.title}</Text>
+                    <Text $weight="bold">{article.title}</Text>
                     <styles.ImageWrapper>
                       <GatsbyImage
                         image={article.image.gatsbyImage}
                         alt={article.image.title}
                       />
                     </styles.ImageWrapper>
-                    <Text $size="sm" $color="gray2" $align="center">
+                    <Text $size="sm" $color="gray2">
                       {article.description.description}
                     </Text>
                   </styles.ArticlePreviewCard>
@@ -44,7 +45,7 @@ export const HomePageArticlePreviews: React.FC<
             })}
           </styles.ArticleLinksWrapper>
         </VStack>
-      </styles.Content>
-    </styles.Wrapper>
+      </SectionContent>
+    </SectionWrapper>
   );
 };

@@ -1,29 +1,8 @@
 import styled from "styled-components";
-import { HStack } from "../HStack/HStack";
-import { colors } from "../../../colors";
-import { onDesktop } from "../../utils/onDesktop";
-import { Text } from "../Text/Text";
 import { VStack } from "../VStack/VStack";
 import { Link } from "gatsby";
-
-export const Wrapper = styled.div`
-  padding: 0 32px;
-  background: ${colors.pureWhite};
-`;
-
-export const Content = styled.div`
-  padding: 48px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1300px;
-  margin: 0 auto;
-
-  ${onDesktop`
-    flex-direction: row;
-  `}
-`;
+import { colors } from "../../../colors";
+import { onDesktop } from "../../utils/onDesktop";
 
 export const ArticleLinksWrapper = styled.div`
   display: grid;
@@ -41,8 +20,9 @@ export const ArticlePreviewLink = styled(Link)`
 
   &:hover,
   &:focus {
-    div {
-      background: ${colors.blue1};
+    div:first-child {
+      box-shadow: rgba(0, 0, 0, 0.2) 3.95px 3.95px 10px;
+      background: rgba(194, 230, 255, 0.08);
     }
   }
 `;
@@ -51,8 +31,8 @@ export const ArticlePreviewCard = styled(VStack)`
   border-radius: 15px;
   padding: 16px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  background: ${colors.offWhite};
   transition: all 0.1s ease-in-out;
+  background: ${colors.pureWhite};
 `;
 
 export const ImageWrapper = styled.div`

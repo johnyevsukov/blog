@@ -2,16 +2,25 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Layout } from "../components/Layout/Layout";
 import { HomePage } from "../components/HomePage/HomePage";
+import { BlogPostType } from "../../types";
+import { PageType } from "../../types";
 
-const Home: React.FC = ({ data }: any) => {
-  console.log("data: ", data);
-  const { contentfulPage: pageData } = data;
-  const { allContentfulBlogPost: articleData } = data;
-  console.log("article ", articleData.nodes);
+interface HomeProps {
+  data: {
+    allContentfulBlogPost: {
+      nodes: BlogPostType[];
+    };
+    contentfulPage: PageType;
+  };
+}
 
+const Home: React.FC<HomeProps> = ({ data }) => {
   return (
     <Layout>
-      <HomePage pageData={pageData} articleData={articleData.nodes} />
+      <HomePage
+        pageData={data.contentfulPage}
+        articleData={data.allContentfulBlogPost.nodes}
+      />
     </Layout>
   );
 };
@@ -27,6 +36,7 @@ export const data = graphql`
         description
       }
       image {
+        id
         gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 500)
         resize(height: 500, width: 500) {
           src
@@ -36,6 +46,10 @@ export const data = graphql`
     allContentfulBlogPost(sort: { publishedDate: DESC }) {
       nodes {
         title
+        description {
+          id
+          description
+        }
         slug
         publishedDate(formatString: "MMMM Do, YYYY")
         image {
@@ -45,10 +59,6 @@ export const data = graphql`
             width: 424
             height: 212
           )
-        }
-        description {
-          id
-          description
         }
       }
     }

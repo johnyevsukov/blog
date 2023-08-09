@@ -1,6 +1,5 @@
-import { Link } from "gatsby";
-import { colors } from "../../../colors";
 import styled from "styled-components";
+import { colors } from "../../../colors";
 
 export const Footer = styled.footer`
   padding: 32px;
