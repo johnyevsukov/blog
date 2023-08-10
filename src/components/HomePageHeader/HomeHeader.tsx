@@ -2,12 +2,13 @@ import React from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { SectionWrapper } from "../SectionWrapper/SectionWrapper";
 import { SectionContent } from "../SectionContent/SectionContent";
+import { PageType } from "../../../types";
 import * as styles from "./styles";
 
 interface HomePageHeaderProps {
   title: string;
   description: string;
-  image: any;
+  image: PageType["image"];
 }
 
 export const HomePageHeader: React.FC<HomePageHeaderProps> = ({

@@ -28,17 +28,19 @@ export const HomePageArticlePreviews: React.FC<
                   to={article.slug}
                   key={article.title}
                 >
-                  <styles.ArticlePreviewCard $spacing={16}>
-                    <Text $weight="bold">{article.title}</Text>
+                  <styles.ArticlePreviewCard $spacing={12}>
                     <styles.ImageWrapper>
                       <GatsbyImage
                         image={article.image.gatsbyImage}
                         alt={article.image.title}
                       />
                     </styles.ImageWrapper>
-                    <Text $size="sm" $color="gray2">
-                      {article.description.description}
-                    </Text>
+                    <VStack $spacing={8}>
+                      <Text $weight="bold">{article.title}</Text>
+                      <Text $size="sm" $color="gray2">
+                        {article.description.description}
+                      </Text>
+                    </VStack>
                   </styles.ArticlePreviewCard>
                 </styles.ArticlePreviewLink>
               );

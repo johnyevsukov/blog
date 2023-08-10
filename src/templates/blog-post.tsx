@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO/SEO";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -6,13 +7,24 @@ import { Layout } from "../components/Layout/Layout";
 import { Text } from "../components/Text/Text";
 import { HStack } from "../components/HStack/HStack";
 import { VStack } from "../components/VStack/VStack";
+import { BlogPostType } from "../../types";
 import * as styles from "./styles";
 
-export default function BlogPostTemplate({ data }: any) {
+interface BlogPostTemplateProps {
+  data: { contentfulBlogPost: BlogPostType };
+}
+
+const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({ data }) => {
   const post = data.contentfulBlogPost;
 
   return (
     <Layout>
+      <SEO
+        title={post.title}
+        description={post.description.description}
+        imageUrl={post.image.gatsbyImage.images.fallback?.src}
+        article
+      />
       <styles.Wrapper>
         <styles.Content>
           <VStack $spacing={32}>
@@ -31,7 +43,10 @@ export default function BlogPostTemplate({ data }: any) {
                 </Text>
               </HStack>
               <styles.ImageWrapper>
-                <GatsbyImage image={post.image?.gatsbyImage} alt="" />
+                <GatsbyImage
+                  image={post.image?.gatsbyImage}
+                  alt={post.image.title}
+                />
               </styles.ImageWrapper>
             </VStack>
             <styles.BodyWrapper>
@@ -42,16 +57,22 @@ export default function BlogPostTemplate({ data }: any) {
       </styles.Wrapper>
     </Layout>
   );
-}
+};
 
 export const query = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
-      slug
+      id
       title
+      description {
+        id
+        description
+      }
       publishedDate(formatString: "MMMM Do, YYYY")
       image {
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 1280)
+        id
+        title
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 750)
         resize(height: 630, width: 1200) {
           src
         }
@@ -59,6 +80,9 @@ export const query = graphql`
       body {
         raw
       }
+      slug
     }
   }
 `;
+
+export default BlogPostTemplate;

@@ -3,7 +3,7 @@ import { colors } from "../../colors";
 import { fontSizeCss, fontWeights } from "../components/Text/Text";
 import { onDesktop } from "../utils/onDesktop";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.article`
   padding: 0 16px;
   background: ${colors.pureWhite};
 `;
@@ -23,9 +23,17 @@ export const Content = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
+  display: flex;
+  align-items: center;
   overflow: hidden;
   width: 100%;
   border-radius: 15px;
+  max-height: 340px;
+
+  div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const BodyWrapper = styled.div`

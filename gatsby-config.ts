@@ -6,12 +6,13 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "John Yevsukov - Blog",
+    description:
+      "A blog dedicated to discussing various web development topics.",
+    image:
+      "https://uploads-ssl.webflow.com/6499f8d6d9a5b46ee57deba3/649a01c9b0e39cce953a5690_john-yevsukov-hero-image.jpeg",
+    siteUrl: "https://www.yourdomain.tld",
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
     {
