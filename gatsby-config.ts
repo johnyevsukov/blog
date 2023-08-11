@@ -22,6 +22,12 @@ const config: GatsbyConfig = {
         accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "./src/images/logo.png",
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
