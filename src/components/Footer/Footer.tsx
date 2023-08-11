@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             <GithubIcon />
           </styles.IconLink>
         </HStack>
-        <Text $weight="medium" $size="sm" $color={"pureWhite"}>
+        <Text $weight="medium" $size="sm" $align="center" $color={"pureWhite"}>
           © Copyright <strong>John Yevsukov 2023.</strong> All Rights Reserved.
         </Text>
       </VStack>
