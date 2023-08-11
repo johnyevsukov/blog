@@ -1,7 +1,6 @@
 import React from "react";
 import { Nav } from "../Nav/Nav";
 import { Footer } from "../Footer/Footer";
-import "./layout.css";
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
